@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Nikos Pantazis - Painting</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+    <link rel="stylesheet" href="assets/css/lightbox-locked.css" />
+    <link rel="alternate" hreflang="en" href="https://nikospantazis.com/index-en.html" />
+    <link rel="alternate" hreflang="el" href="https://nikospantazis.com/index.html" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: poppins;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* background-color: ; */
+            color: wheat;
+        }
+
+        .wrapper {
+            padding: 10px 10%;
+        }
+
+        #card-area {
+            padding: 50px 0;
+        }
+
+        .box-area {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+
+        }
+
+        .box {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+            border: none;
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(100%);
+            text-align: center;
+            flex-direction: column;
+            font-size: 8px;
+        }
+
+        .box:hover .overlay {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+
+    <div class="container">
+        <h4><br></h4>
+        <h4><b>My Certifications</b></h4>
+        <h6><br></h6>
+    </div>
+
+    <div class="sticky">
+        <h5>
+            <a href='about-me-en.html' rel="external" class="button">About me</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href='about-me-en.html' rel="external" class="button">Paintings</a>
+
+        </h5>
+
+    </div>
+
+    <!-- <h6><br></h6> -->
+    <div id="card-area">
+        <div class="wrapper">
+            <div class="box-area">
+                <div class="box">
+                    <img src="./images/assets/image7.jpg" alt="">
+                    <div class="overlay">
+                        <h3>
+                            Elementary Certificate
+                        </h3>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./images/assets/image8.jpg" alt="">
+                    <div class="overlay">
+                        <h3>
+                            Intermediate Certificate
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <ul class="icons">
+            <h5><a href='index-en.html' rel="external" class="button">Back to main</a></h5>
+        </ul>
+    </div>
+
+    <!-- Scripts -->
+    <script src='assets/js/jquery-1.11.3.js'></script>
+    <script src='assets/js/jquery.mobile-1.4.5.min.js'></script>
+    <script src="assets/js/jquery.lazy.min.js"></script>
+    <script src="assets/js/lightbox-locked.js"></script> <!-- this is an edited file -->
+    <script>
+        $.mobile.loading().hide();
+    </script>
+    <script>
+        $(function () {
+            $('.lazy').lazy({
+                threshold: 500,
+                effect: "fadeIn",
+                effectTime: 400,
+                enableThrottle: true,
+                throttle: 50,
+            });
+        });
+    </script>
+    <script>
+        lightbox.option({
+            'showImageNumberLabel': false,
+            'wrapAround': true,
+            'positionFromTop': 10,
+            'resizeDuration': 0,
+            'imageFadeDuration': 300,
+            'fadeDuration': 300,
+            'disableScrolling': true
+        })
+    </script>
+    <script>
+        function leftTrigger() {
+            setTimeout(function () {
+                $('.lightbox').on('swipeleft', leftHandler);
+
+                function leftHandler() {
+                    $('.lb-next').click();
+                }
+            }, 0);
+        }
+
+
+
+        function rightTrigger() {
+            setTimeout(function () {
+                $('.lightbox').on('swiperight', leftHandler);
+
+                function leftHandler() {
+                    $('.lb-prev').click();
+                }
+            }, 0);
+        }
+
+        $('[data-lightbox]').on('click', function () {
+            leftTrigger();
+            rightTrigger();
+            $('[data-lightbox]').off('click')
+        });
+    </script>
+
+
+</body>
+
+</html>
